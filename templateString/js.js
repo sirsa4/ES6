@@ -32,10 +32,14 @@ function HTML(element){
     this.productPage = this.product.bind(this);
     console.log(this.products);
 
-    //main
+   
+
+
+    //navigation click buttons
  this.home.addEventListener('click', this.mainContent);
  this.products.addEventListener('click', this.productPage);
-    
+   
+    //product page section clicks
     
 }
 
@@ -65,12 +69,15 @@ HTML.prototype.mainPara = function(){
 
 //prototype for products page
 HTML.prototype.product = function(){
-    console.log('product page working');
     //clear main area from elements already there first
     this.main.innerHTML = '';
     //main article
     this.article = document.createElement('article');
     this.article.className = 'article';
+
+    //product section bind functions
+     this.wordPress = this.wordpress.bind(this);
+     this.squareSpace = this.square.bind(this);
 
     //wordpress section
     this.wordSection = document.createElement('section');
@@ -80,8 +87,22 @@ HTML.prototype.product = function(){
     this.wordHead.innerHTML = 'WordPress';
     this.wordSection.appendChild(this.wordHead);
 
+    //square section
+    this.squareSection = document.createElement('section');
+    this.squareSection.className = 'square-container';
+
+    this.squareHead = document.createElement('h3');
+    this.squareHead.innerHTML = 'squarePress';
+    this.squareSection.appendChild(this.squareHead);
+
     //article append
     this.article.appendChild(this.wordSection);
+    this.article.appendChild(this.squareSection);
+
+    //products click events
+    this.wordSection.addEventListener('click', this.wordPress);
+    this.squareSection.addEventListener('click', this.squareSpace);
+
 
     //main append
     this.main.appendChild(this.article);
@@ -93,6 +114,56 @@ HTML.prototype.product = function(){
     this.home.addEventListener('click', this.mainContent);
 }
 
+  //section clicks
+  
+  //wordpress section function
+  HTML.prototype.wordpress = function(){
+    //wordpress img
+    this.wordImg = document.createElement('img');
+    this.wordImg.src = 'img/wordpress.PNG';
+    
+    //wordpress paragraph
+    this.wordP = document.createElement('p');
+    this.wordP.innerHTML = 'WordPress is not free anymore!';
+
+    //wordpress buy button
+    this.wordBuy = document.createElement('a');
+    this.wordBuy.innerHTML = 'BUY NOW';
+    this.wordBuy.href = '#';
+
+    this.wordSection.appendChild(this.wordImg);
+    this.wordSection.appendChild(this.wordP);
+    this.wordSection.appendChild(this.wordBuy);
+
+    this.wordSection.removeEventListener('click', this.wordPress);
+    console.log(this.wordSection);
+}
+  //square section function
+  HTML.prototype.square = function(){
+    console.log('squareSpace section working');
+    //wordpress img
+    this.squareImg = document.createElement('img');
+    this.squareImg.src = 'img/square.PNG';
+    
+    //wordpress paragraph
+    this.squareP = document.createElement('p');
+    this.squareP.innerHTML = 'Square is not free anymore!';
+
+    //wordpress buy button
+    this.squareBuy = document.createElement('a');
+    this.squareBuy.innerHTML = 'BUY NOW';
+    this.squareBuy.href = '#';
+    console.log(this.squareSection);
+
+    this.squareSection.appendChild(this.squareImg);
+    this.squareSection.appendChild(this.squareP);
+    this.squareSection.appendChild(this.squareBuy);
+
+    this.squareSection.removeEventListener('click', this.squareSpace);
+
+}
+
+//
 const html = new HTML(getElement('.container'));
 
 

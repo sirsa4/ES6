@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    margin: 0;
 }
 
 body {
@@ -32,4 +33,13 @@ body {
 .ul a:hover {
     text-decoration: underline;
     background-color: violet;
+}
+
+.article {
+    display: flex;
+    gap: 2rem;
+}
+
+img {
+    width: 15%;
 }
