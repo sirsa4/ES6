@@ -9,9 +9,9 @@ function getElement(select){
 }
 
 //nav constructor
-function HTML(element){
+function Nav(element){
     console.log(element);
-    this.nav = getElement('.nav');
+    this.nav = element;
     this.main = getElement('.main');
     this.ul = document.createElement('ul');
     this.ul.className = 'ul';
@@ -29,19 +29,16 @@ function HTML(element){
     this.products = this.nav.querySelector('li:nth-child(2)');
     //bind function
     this.mainContent = this.mainPara.bind(this);
-    this.productPage = this.product.bind(this);
     console.log(this.products);
 
     //main
  this.home.addEventListener('click', this.mainContent);
- this.products.addEventListener('click', this.productPage);
     
     
 }
 
-//prototype for home page
-HTML.prototype.mainPara = function(){
-    this.main.innerHTML = '';
+//prototypes
+Nav.prototype.mainPara = function(){
     
    this.container = document.createElement('div');
    this.container.className = 'main-div';
@@ -57,43 +54,10 @@ HTML.prototype.mainPara = function(){
 
    //remove event so it cant be create again and again
    this.home.removeEventListener('click', this.mainContent);
-
-   //other pages being able to clicked from here
-   this.products.addEventListener('click', this.productPage);
     
 }
 
-//prototype for products page
-HTML.prototype.product = function(){
-    console.log('product page working');
-    //clear main area from elements already there first
-    this.main.innerHTML = '';
-    //main article
-    this.article = document.createElement('article');
-    this.article.className = 'article';
-
-    //wordpress section
-    this.wordSection = document.createElement('section');
-    this.wordSection.className = 'word-container';
-
-    this.wordHead = document.createElement('h3');
-    this.wordHead.innerHTML = 'WordPress';
-    this.wordSection.appendChild(this.wordHead);
-
-    //article append
-    this.article.appendChild(this.wordSection);
-
-    //main append
-    this.main.appendChild(this.article);
-
-    //remove event
-    this.products.removeEventListener('click', this.productPage);
-
-    //other events being able to clicked on
-    this.home.addEventListener('click', this.mainContent);
-}
-
-const html = new HTML(getElement('.container'));
+const navigation = new Nav(getElement('.nav'));
 
 
 //add to header
@@ -105,3 +69,27 @@ header.innerHTML =
 `
 ;
 
+//navigasjon og ul
+/* const nav = document.querySelector('.nav');
+const ul = document.createElement('ul');
+
+//ul class name
+ul.className = 'ul';
+
+
+//navbar items
+const navItems = ['Home', 'Products', 'About', 'Contact'];
+
+
+//ul appended to <nav>
+nav.appendChild(ul);
+
+//
+const navInsert = navItems.map(function(item){
+    return `<li><a class"a-link">${item}</a></li>`;
+    
+});
+
+//<li> printed in ul tag
+ul.innerHTML = navInsert.join('');
+ */
