@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 80%;
+    max-height: 90%;
+    margin: 0 auto;
+}
+.container {
+    background-color: rgb(241, 214, 214);
+}
+
+.nav {
+    box-shadow: 0px 0px 5px rgb(134, 53, 53);
+    background-color: white;
+}
+
+.ul {
+    display: flex;
+    gap: 2rem;
+    justify-content: start;
+}
+
+.ul li {
+    list-style: none;
+}
+
+.ul a {
+    text-decoration: none;
+}
+.ul a:hover {
+    text-decoration: underline;
+    background-color: violet;
+}
