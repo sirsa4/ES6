@@ -37,9 +37,18 @@ body {
 
 .article {
     display: flex;
-    gap: 2rem;
+    justify-content: start;
+    gap: 1rem;
 }
 
 img {
-    width: 15%;
+    width: 25%;
+}
+
+h3 {
+    margin: 0 10px;
+}
+section {
+    border: 1px solid black;
+    text-align: center;
 }

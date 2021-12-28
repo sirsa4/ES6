@@ -78,6 +78,7 @@ HTML.prototype.product = function(){
     //product section bind functions
      this.wordPress = this.wordpress.bind(this);
      this.squareSpace = this.square.bind(this);
+     this.wixFunction = this.wix.bind(this);
 
     //wordpress section
     this.wordSection = document.createElement('section');
@@ -92,16 +93,27 @@ HTML.prototype.product = function(){
     this.squareSection.className = 'square-container';
 
     this.squareHead = document.createElement('h3');
-    this.squareHead.innerHTML = 'squarePress';
+    this.squareHead.innerHTML = 'squareSpace';
     this.squareSection.appendChild(this.squareHead);
+
+    //Wix section
+    this.wixSection = document.createElement('section');
+    this.wixSection.className = 'wix-container';
+
+    this.wixHead = document.createElement('h3');
+    this.wixHead.innerHTML = 'Wix';
+    this.wixSection.appendChild(this.wixHead);
+    
 
     //article append
     this.article.appendChild(this.wordSection);
     this.article.appendChild(this.squareSection);
+    this.article.appendChild(this.wixSection);
 
     //products click events
     this.wordSection.addEventListener('click', this.wordPress);
     this.squareSection.addEventListener('click', this.squareSpace);
+    this.wixSection.addEventListener('click', this.wixFunction);
 
 
     //main append
@@ -119,6 +131,11 @@ HTML.prototype.product = function(){
   //wordpress section function
   HTML.prototype.wordpress = function(){
     //wordpress img
+    this.wordHead.innerHTML = '';
+    this.wordHead2 = document.createElement('h3');
+    this.wordHead2.innerHTML = 'WordPress';
+    this.wordSection.appendChild(this.wordHead2);
+    
     this.wordImg = document.createElement('img');
     this.wordImg.src = 'img/wordpress.PNG';
     
@@ -162,6 +179,32 @@ HTML.prototype.product = function(){
     this.squareSection.removeEventListener('click', this.squareSpace);
 
 }
+  //wix section function
+  HTML.prototype.wix = function(){
+    console.log('wix section working');
+    //wordpress img
+    this.wixImg = document.createElement('img');
+    this.wixImg.src = 'img/wix.PNG';
+    
+    //wordpress paragraph
+    this.wixP = document.createElement('p');
+    this.wixP.innerHTML = 'Wix is not free anymore!';
+
+    //wordpress buy button
+    this.wixBuy = document.createElement('a');
+    this.wixBuy.innerHTML = 'BUY NOW';
+    this.wixBuy.href = '#';
+    console.log(this.wixSection);
+
+    this.wixSection.appendChild(this.wixImg);
+    this.wixSection.appendChild(this.wixP);
+    this.wixSection.appendChild(this.wixBuy);
+
+    this.squareSection.removeEventListener('click', this.squareSpace);
+
+}
+
+
 
 //
 const html = new HTML(getElement('.container'));
