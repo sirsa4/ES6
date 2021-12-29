@@ -15,7 +15,8 @@ function HTML(element){
     this.main = getElement('.main');
     this.ul = document.createElement('ul');
     this.ul.className = 'ul';
-    console.log(this.ul);
+    this.footer = getElement('.footer');
+    console.log(this.footer);
     this.nav.appendChild(this.ul);
     this.navItems = ['Home', 'Products', 'About', 'Contact'];
     this.insertNavnItems = this.navItems.map(function(item){
@@ -188,7 +189,7 @@ HTML.prototype.product = function(){
     
     //wordpress paragraph
     this.wixP = document.createElement('p');
-    this.wixP.innerHTML = 'Wix is not free anymore!';
+    this.wixP.innerHTML = 'Wix is never been free!';
 
     //wordpress buy button
     this.wixBuy = document.createElement('a');
@@ -200,15 +201,26 @@ HTML.prototype.product = function(){
     this.wixSection.appendChild(this.wixP);
     this.wixSection.appendChild(this.wixBuy);
 
-    this.squareSection.removeEventListener('click', this.squareSpace);
+    this.wixSection.removeEventListener('click', this.wixFunction);
 
 }
 
+//footer function
+HTML.prototype.footerFunction = function(){
+    console.log('footer working!');
+    this.name = document.createElement('p');
+    this.name.className = 'footer-header';
+    this.name.classList.add('box');
+    this.name.innerText = 'Yahye Abdi 2021';
+    this.footer.appendChild(this.name);
+}
 
 
 //
 const html = new HTML(getElement('.container'));
 
+//footer function running here
+html.footerFunction();
 
 //add to header
 const header = document.querySelector('.header');

@@ -9,7 +9,9 @@ body {
     margin: 0 auto;
 }
 .container {
-    background-color: rgb(241, 214, 214);
+   /*  background-color: rgb(241, 214, 214); */
+    display: grid;
+    gap: 1rem;
 }
 
 .nav {
@@ -38,7 +40,7 @@ body {
 .article {
     display: flex;
     justify-content: start;
-    gap: 1rem;
+    gap: .2rem;
 }
 
 img {
@@ -51,4 +53,23 @@ h3 {
 section {
     border: 1px solid black;
     text-align: center;
+}
+
+.box {
+    
+    box-shadow: 1px 1px 5px 3px rgb(137, 156, 136);
+}
+
+/* //background colors */
+.header {
+    background-color: hsla(120, 50%, 50%, 1);
+}
+.nav {
+    background-color: hsla(0, 50%, 50%, .5);
+}
+.main {
+    background-color: hsla(200, 50%, 50%, .2);
+}
+.footer {
+    background-color: hsla(120, 50%, 50%, .5);
 }
