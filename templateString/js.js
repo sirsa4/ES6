@@ -33,6 +33,17 @@ function HTML(element){
     this.productPage = this.product.bind(this);
     console.log(this.products);
 
+    //tagged template literals
+    this.array = [
+        ['John Doe', 'Developer of WordPress', 39],
+        ['Jane Doe', 'Developer of SquareSpace', 45]
+    ];
+
+    
+
+
+    
+
    
 
 
@@ -207,13 +218,18 @@ HTML.prototype.product = function(){
 
 //footer function
 HTML.prototype.footerFunction = function(){
-    console.log('footer working!');
     this.name = document.createElement('p');
     this.name.className = 'footer-header';
     this.name.classList.add('box');
     this.name.innerText = 'Yahye Abdi 2021';
+    this.footdiv = document.createElement('div');
     this.footer.appendChild(this.name);
+    this.footer.appendChild(this.footdiv);
+
 }
+
+
+    
 
 
 //
@@ -221,6 +237,7 @@ const html = new HTML(getElement('.container'));
 
 //footer function running here
 html.footerFunction();
+
 
 //add to header
 const header = document.querySelector('.header');
