@@ -50,4 +50,31 @@ john.sayHi();
 john.sayBye();
 john.back();
 
-console.log(john);
+console.log(john);console.log(john);
+
+//this with event listener
+const btn = document.querySelector('.btn');
+
+/* 
+    -Here if callback function event is arrow function, then 'this' keyword would refer to the window object since the function would be running with the click which is inside the window. so functionality would fail. regular function is better in this case. But if we have another function inside the call function like setTimeout(), then arrow function would work since the setTimeout would be running after the click event is already happened. 
+*/
+
+//with arrow functions
+btn.addEventListener('click', function () {
+    console.log(this);
+    setTimeout(()=>{
+    console.log(this);
+    this.style.color = 'white';
+    this.style.backgroundColor = 'black';
+    this.style.padding = '.1rem 1rem';
+    }, 1000);
+
+});
+
+//regular function
+btn.addEventListener('click', function(){
+    this.style.color = 'white';
+    this.style.backgroundColor = 'black';
+    this.style.padding = '.1rem 1rem';
+
+}); 
