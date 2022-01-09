@@ -21,42 +21,33 @@ const body = document.body;
 const btn = element('.btn');
 
 //Async event to change colors
-btn.addEventListener('click', function(){
-    setTimeout(()=>{
-        body.style.backgroundColor = 'red';
-        setTimeout(()=>{
-            body.style.backgroundColor = 'green';
-            header3.style.backgroundColor = 'gold';
-            setTimeout(()=>{
-                body.style.backgroundColor = 'gray';
-                header3.style.color = 'red';
-                header1.style.backgroundColor = 'black';
-                header2.style.backgroundColor = 'purple';
-            },1000);
-        },1000);
-        setTimeout(()=>{
-            body.style.backgroundColor = 'pink';
-            header3.style.backgroundColor = '';
-            header1.style.color = '';
-            setTimeout(()=>{
-                body.style.backgroundColor = 'cyan';
-                header3.style.color = '';
-                header2.style.backgroundColor = '';
-                setTimeout(() => {
-                    body.style.backgroundColor = 'magenta';
-                    header1.style.backgroundColor = '';
-                    header2.style.color = '';
-                    setTimeout(() => {
-                        body.style.backgroundColor = '';
-                    },1000);
-                    
-                },500);
-
-            },1000);
-        },4000);
-        setTimeout(()=>{
-            header1.style.color = 'white';
-            header2.style.color = 'green';
-        },500);
-    },100);
+btn.addEventListener('click', ()=>{
+  console.log('working');
 });
+
+//promsises basics
+
+/*
+    -promise is an inbuildt javascript method which.
+    -new Promise() takes 2 paramaters which can have any name. normally called 'resolve and reject'.
+    -the first parameter is the resolve when the promise is complete, the state would 'fulfilled'.
+    -the second parameter 'reject' is when the promise is fails, the state would be rejected.
+    -.then() function is  used to get the complete promise.
+    -.catch() is used to get the error when promise fails
+ */
+const firstPromise = new Promise((reslove, reject)=>{
+    const variable = true;
+
+    if(variable){
+        reslove(`${variable} is true`);
+    } else {
+        reject(`${variable} is not true at all`);
+    }
+});
+
+firstPromise.then(()=>{
+    console.log('this is working');
+}).catch(()=>{
+    console.log('this is not working');
+})
+console.log(firstPromise);
