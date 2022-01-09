@@ -50,7 +50,7 @@ john.sayHi();
 john.sayBye();
 john.back();
 
-console.log(john);console.log(john);
+console.log(john);
 
 //this with event listener
 const btn = document.querySelector('.btn');
@@ -60,21 +60,40 @@ const btn = document.querySelector('.btn');
 */
 
 //with arrow functions
+//btn color change
 btn.addEventListener('click', function () {
     console.log(this);
+
     setTimeout(()=>{
     console.log(this);
+
     this.style.color = 'white';
     this.style.backgroundColor = 'black';
     this.style.padding = '.1rem 1rem';
+
+    }, 1000);
+
+});
+
+//without arrow
+btn.addEventListener('click', function () {
+    console.log(this);
+
+    setTimeout(function(){
+    console.log(this);
+
+    this.style.color = 'white';
+    this.style.backgroundColor = 'black';
+    this.style.padding = '.1rem 1rem';
+
     }, 1000);
 
 });
 
 //regular function
-btn.addEventListener('click', function(){
+ btn.addEventListener('click', function(){
     this.style.color = 'white';
     this.style.backgroundColor = 'black';
     this.style.padding = '.1rem 1rem';
 
-}); 
+});  
