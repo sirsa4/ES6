@@ -1,0 +1,1 @@
+One of the hardest things about writing good JavaScript is dealing with heavily nested asynchronous code. Promises were created to solve the problem with callback hell, but there are still plenty of nested problems related to promises. This is where async/await comes in. 
